@@ -1,0 +1,224 @@
+
+
+
+html, body {
+  height: 100%; /* Ensure the page takes up full height */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgb(119, 193, 202);
+  backdrop-filter: blur(10px);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px; /* Set a fixed height for the header */
+  overflow: hidden; /* Prevents the image from affecting the height */
+  width: 100%; 
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+
+
+.header .left-section {
+  
+  display: flex;
+  align-items: center;
+}
+
+.header .left-section img {
+  width: 170px; /* Increased image width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure the image doesn't overflow its container */
+}
+
+.header img {
+  
+  width:85px; /* Adjust as needed */
+  height: auto;
+  max-width: 100%;
+}
+
+.header .nav_links {
+  
+  display: flex;
+  gap: 20px; /* Increased gap for better spacing */
+  flex-shrink: 0; /* Prevents shrinking */
+  align-items: flex-start; /* Center links vertically */
+  margin-left: auto;
+}
+
+.header .nav_links a {
+  
+  text-decoration: none ; /* Remove underline */
+  font-family: 'Verdana', sans-serif;
+  font-size: 16px;
+  color: black; /* Default color is black */
+  padding: 3px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+.header .nav_links a:hover {
+  
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.header .nav_links a:focus, 
+.header .nav_links a:active {
+  
+  color: black; /* Ensure color stays black on focus and active states */
+}
+
+
+.note-input strong {
+  color:rgb(0, 0, 0); /* Yellow highlight */
+  padding : 2px 4px;
+  border-radius: 3px;
+  text-decoration: underline;
+}
+
+.content {
+  padding-top: 30px;
+  font-family: Arial, sans-serif;
+  flex-grow: 1; /* This will take up the remaining space */
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 0px;
+}
+
+.title-box {
+  background-color: #C4DFE6;
+  padding: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.title-text {
+  font-family: 'Verdana';
+  font-size: 20px;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 20px;
+  color: rgb(47, 43, 43);
+}
+
+.file-input-label {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.note-input {
+  font-family: 'Verdana';
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.5;
+  padding-left: 10px;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+#fileInput {
+  margin-top: 1px;
+  padding: 5px;
+  border: 2px solid #d5d5d5;
+  border-radius: 5px;
+  width: 89%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: 'Verdana';
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(119, 193, 202);
+  margin-top: 20px;
+}
+
+.footer p {
+  
+  margin: 0;
+}
+
+.footer a {
+  
+  color: #0b30e7;
+  text-decoration: none;
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  letter-spacing: 1px;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.25s;
+  margin-left: 10px;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: black;
+  transform: translateZ(-5px);
+}
+
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #6a9eb0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

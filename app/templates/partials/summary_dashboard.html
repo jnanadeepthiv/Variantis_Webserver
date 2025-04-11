@@ -1,0 +1,136 @@
+
+<style>
+  .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .matrix-section {
+      margin-bottom: 30px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+  }
+
+  .table-container {
+      overflow-x: auto;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+  }
+
+  th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+  }
+
+  th {
+      background-color: #f8fafc;
+      font-weight: bold;
+      color: #4a5568;
+  }
+
+  tr:hover {
+      background-color: #f8fafc;
+  }
+
+  .percentage {
+      color: #4a5568;
+  }
+
+  .count {
+      color: #2d3748;
+      font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+      .container {
+          padding: 10px;
+      }
+
+      th, td {
+          padding: 8px;
+          font-size: 13px;
+      }
+  }
+</style>
+
+<div class="container">
+  <!-- Summary Features Matrix -->
+  <div class="matrix-section">
+      <h2 class="section-title">Summary Features Matrix</h2>
+      <div class="table-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Sequence Pair</th>
+                      <th>Transition Count</th>
+                      <th>Transition %</th>
+                      <th>Transversion Count</th>
+                      <th>Transversion %</th>
+                      <th>Gap Count</th>
+                      <th>Gap %</th>
+                      <th>Identical Count</th>
+                      <th>Identical %</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for index, row in features_matrix.iterrows() %}
+                  <tr>
+                      <td>{{ row['Sequence_Pair'] }}</td>
+                      <td class="count">{{ row['Transition_Count'] }}</td>
+                      <td class="percentage">{{ row['Transition_Percentage']|round(2) }}%</td>
+                      <td class="count">{{ row['Transversion_Count'] }}</td>
+                      <td class="percentage">{{ row['Transversion_Percentage']|round(2) }}%</td>
+                      <td class="count">{{ row['Gap_Count'] }}</td>
+                      <td class="percentage">{{ row['Gap_Percentage']|round(2) }}%</td>
+                      <td class="count">{{ row['Identical_Count'] }}</td>
+                      <td class="percentage">{{ row['Identical_Percentage']|round(2) }}%</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+  <!-- Summary Alignment Matrix -->
+  <div class="matrix-section">
+      <h2 class="section-title">Summary Alignment Matrix</h2>
+      <div class="table-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Sequence Pair</th>
+                      <th>Query 1 Length</th>
+                      <th>Query 2 Length</th>
+                      <th>Aligned Length</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for index, row in alignment_matrix.iterrows() %}
+                  <tr>
+                      <td>{{ row['Sequence_Pair'] }}</td>
+                      <td class="count">{{ row['Query_1_Length'] }}</td>
+                      <td class="count">{{ row['Query_2_Length'] }}</td>
+                      <td class="count">{{ row['Aligned_Length'] }}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

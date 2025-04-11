@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Variantis{% endblock %}
+{% block head %}
+  {{ super() }}  {# Ensures that the base.html head content is not lost #}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+
+{% endblock %}
+{% block content %}
+
+<style>
+  /* Navigation Bar Styling */
+  .navbar {
+      position : fixed ;
+      z-index : 1000;
+      background-color: #2c3e50; /* Dark blue-gray background */
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      top: 80px; 
+  }
+  
+  .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+  }
+  
+  .nav-links li {
+      display: inline;
+  }
+  
+  .nav-links a {
+      text-decoration: none;
+      color: #ecf0f1; /* Light gray text */
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover {
+      background-color: #34495e; /* Slightly lighter blue-gray on hover */
+      color: #ffffff;
+  }
+  
+  .nav-links .active {
+      background-color: #0b1717; /* Red highlight for active link */
+      font-weight: bold;
+  }
+
+  /* Content Area Styling */
+  #content-area {
+      padding: 20px;
+      margin-top: 20px;
+  }
+</style>
+
+<div class="content">
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#" data-url="{{ url_for('results.all_results_section') }}">
+        <i class="fas fa-file-alt"></i> Results
+      </a></li>
+      <li><a href="#" data-url="{{ url_for('results.summary_dashboard_section') }}">
+        <i class="fas fa-file-alt"></i> Summary Dashboard
+      </a></li>
+      <li><a href="#" data-url="{{ url_for('results.alignment_section') }}">
+        <i class="fas fa-file-alt"></i> Individual Output
+      </a></li>
+      <li><a href="#" data-url="{{ url_for('results.run_details_section') }}">
+        <i class="fas fa-file-alt"></i> Run Details
+      </a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Content Area -->
+  <div id="content-area">
+    <!-- Dynamic content will be loaded here -Single Page Application -->
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const contentArea = document.getElementById('content-area');
+
+    // Function to load content dynamically
+    function loadContent(url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(html => {
+          contentArea.innerHTML = html;
+          loadScriptAndReattachListeners(); // Load script and reattach listeners
+
+          
+
+        })
+
+        .catch(error => {
+          console.error('Error loading content:', error);
+          contentArea.innerHTML = '<p>Error loading content. Please try again.</p>';
+        });
+    }
+
+    
+    // Function to load colour_alignment.js and reattach listeners
+    function loadScriptAndReattachListeners() {
+      if (typeof updateQueryrequest === 'undefined') {
+        // Script not loaded yet, load it dynamically
+        const script = document.createElement('script');
+        script.src = "{{ url_for('static', filename='js/colour_alignment.js') }}";
+        script.onload = () => {
+          reattachEventListeners(); // Reattach listeners after script is loaded
+        };
+        document.body.appendChild(script);
+      } else {
+        reattachEventListeners(); // Script already loaded, reattach listeners
+      }
+    }
+
+    // Load additional scripts after the page loads
+    document.addEventListener('DOMContentLoaded', function () {
+      loadAdditionalScripts();
+    });
+
+    //Add click event listeners to navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior
+        const url = this.getAttribute('data-url');
+        loadContent(url);
+
+        // Update active link
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Load the default content (e.g., Results section) on page load
+    const defaultLink = document.querySelector('.nav-links a[data-url]');
+    if (defaultLink) {
+      defaultLink.click();
+    }
+  });
+  function reattachEventListeners() {
+    setTimeout(() => {
+      const submitButton = document.querySelector('.submit-button');
+      if (submitButton) {
+        submitButton.addEventListener("click", updateQueryrequest);
+      }
+    }, 100);
+  }
+</script>
+
+{% endblock %}

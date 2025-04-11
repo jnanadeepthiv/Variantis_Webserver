@@ -1,0 +1,110 @@
+/* Ensure the page takes up full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.header {
+  background-color: rgb(119, 193, 202);
+  backdrop-filter: blur(10px);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .left-section {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  height: 80px;
+}
+
+.header .nav_links {
+  display: flex;
+  gap: 20px;
+}
+
+.header .nav_links a {
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.header .nav_links a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.header .nav_links a:focus, 
+.header .nav_links a:active {
+  color: black;
+}
+
+/* Results Navigation Bar */
+.content .results_nav_links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #C4DFE6;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto; /* Makes the bar scrollable */
+  white-space: nowrap; /* Prevents wrapping of navigation items */
+  margin: 20px auto; /* Centers the nav bar */
+  max-width: 90%; /* Limits the width to avoid stretching */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content .results_nav_links a {
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparent box background */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.content .results_nav_links a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.content .results_nav_links a:focus, 
+.content .results_nav_links a.active {
+  background-color: #11999e; /* Highlight color for the active link */
+  color: white; /* White text for better contrast */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Footer Section */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(119, 193, 202);
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #0b30e7;
+  text-decoration: none;
+}

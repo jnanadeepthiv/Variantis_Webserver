@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}About Variantis{% endblock %}
+
+{% block content %}
+    <style>
+        .about-container {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+            margin: 0;
+            padding: 0;
+        }
+        .about-container .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: visible; 
+        }
+        .about-container h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .about-container .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+        .about-container h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        .about-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 15px;
+        }
+        .about-container a {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .about-container a:hover {
+            text-decoration: underline;
+        }
+        .about-container .contact-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+        .about-container .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;  /* Allows wrapping if needed */
+            margin-top: 5px;
+            gap: 20px;
+            max-width: 70%;  /* Ensure it doesn't overflow */
+            overflow: visible;
+            margin-left: auto;  /* Centers the container */
+            margin-right: auto; /* Centers the container */
+            
+        }
+        .about-container .logos img {
+            width: 120px;  /* Adjust width */
+            height: auto;
+            border-radius: 0px;
+            flex: 1 1 150px;  /* Increase the space each image gets */
+            flex-shrink: 0;
+            
+        }
+
+        .about-container .button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        .about-container .button:hover {
+            background: #1e40af;
+        }
+
+        .about-container .contributers {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-container figure {
+            text-align: center;
+            margin: 0; 
+        }
+
+        .about-container img {
+            width: 250px;  /* Adjust size */
+            height: 250px;
+            object-fit: cover; /* Ensures proper scaling */
+            border-radius: 30%; /* Makes them circular */
+        }
+
+        .about-container figcaption {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+                
+                
+    </style>
+    <div class="about-container">
+        <div class="container">
+            
+
+            <div class="section">
+                <h2>Technical Overview</h2>
+                <p><strong>Variantis</strong> is a web-based tool developed using <span class="highlight">Flask, JavaScript, HTML, and CSS</span>. It integrates advanced libraries to deliver a seamless and interactive user experience for sequence analysis.</p>
+                <p>This project is a collaborative effort by Jnana Deepthi Vishnumolakala (Project Intern at IITH from SRM University, AP) and Dr. Gaurav Sharma from the  <a href="https://sites.google.com/view/sharmaglab/Home" target="_blank"> SharmaG_omics Lab</a> at IIT Hyderabad.</p>
+                <p>We extend our gratitude to the <a href="https://www.iith.ac.in" target="_blank">IIT Hyderabad</a> and <a href="https://srmap.edu.in" target="_blank">SRM University, Andhra Pradesh </a> for their support and resources.</p>
+            </div>
+
+            <div class="contributers">
+                <figure>
+                    <img src="{{ url_for('static', filename='images/JD_pic.jpg') }}" alt="Jnana Deepthi">
+                    <figcaption><a href="https://www.linkedin.com/in/jnana-deepthi-vishnumolakala-5a8381239/" target="_blank">Jnana Deepthi</a></figcaption>
+                </figure>
+                <figure>
+                    <img src="{{ url_for('static', filename='images/GS_pic.jpg') }}" alt="Gaurav Sharma">
+                    <figcaption> <a href ="https://www.linkedin.com/in/gaurav-sharma-ph-d-44891118/" target= "_blank">Dr. Gaurav Sharma</a></figcaption>
+                </figure>
+            </div>
+
+            <div class="contact-section">
+                <h2>Contact & Feedback</h2>
+                <p>We welcome your feedback and suggestions! If you have any questions, encounter issues, or would like to suggest improvements, please don’t hesitate to reach out.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOfKEpLSVtfTiFA8pmOtZzwRsQcPZT6YUUfuv8V4Fi_cwuBg/viewform?usp=header" target="_blank" class="button">Submit Feedback</a>
+            </div>
+
+            <div class="logos">
+                <a href="https://www.iith.ac.in" target="_blank">
+                    <img src="{{ url_for('static', filename='images/iith_logo.png') }}" alt="IIT Hyderabad Logo">
+                </a>
+                
+                <a href="https://sites.google.com/view/sharmaglab/Home" target="_blank">
+                    <img src="{{ url_for('static', filename='images/lab_logo.png') }}" alt="SharmaG_omics Lab Logo">
+                </a>
+                <a href="https://srmap.edu.in" target="_blank">
+                    <img src="{{ url_for('static', filename='images/srmap_logo.png') }}" alt="SRMAP logo">
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

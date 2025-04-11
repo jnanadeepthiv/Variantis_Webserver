@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}Variantis Tutorial{% endblock %}
+
+{% block head %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .tutorial-container {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+            margin: 0;
+            padding: 0;
+        }
+        .tutorial-container .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .tutorial-container h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tutorial-container .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            transition: box-shadow 0.2s ease;
+        }
+        .tutorial-container .section:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .tutorial-container h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+        .tutorial-container p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+        .tutorial-container .highlight {
+            font-weight: 500;
+            color: #d8a01d;
+        }
+        .tutorial-container .button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            text-align: center;
+        }
+        .tutorial-container .button:hover {
+            background: #1e40af;
+        }
+        .tutorial-container .note {
+            font-style: italic;
+            color: #6b7280;
+            margin-top: 10px;
+        }
+        .tutorial-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .tutorial-container ul li {
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+        .tutorial-container ul li strong {
+            color: #111827;
+        }
+    </style>
+    <div class="tutorial-container">
+        <div class="container">
+            <h1>Welcome to the Variantis Tutorial</h1>
+
+            <div class="section">
+                <h2>Step 1: Upload Your FASTA File</h2>
+                <p>To begin your analysis, upload a FASTA-formatted file containing your sequences.</p>
+                <p class="note">Note: Only files in FASTA format are accepted.</p>
+            </div>
+
+            <div class="section">
+                <h2>Step 2: Understanding Alignment Parameters</h2>
+                <p>Click on the "?" icon to view the default details about the parameters Variantis uses for pairwise sequence alignment.</p>
+            </div>
+
+            <div class="section">
+                <h2>Step 3: Customizing Parameters</h2>
+                <p>Variantis allows customization of alignment settings:</p>
+                <ul>
+                    <li><strong>Pairwise Alignment Program:</strong> Choose between 
+                        <a class="highlight" href="https://www.bioinformatics.nl/cgi-bin/emboss/help/needle" target="_blank">EMBOSS Needle</a> 
+                        and 
+                        <a class="highlight" href="https://www.bioinformatics.nl/cgi-bin/emboss/help/stretcher" target="_blank">EMBOSS Stretcher</a>.
+                    </li>
+                    <li><strong>Gap Open & Gap Extension:</strong> Adjust values for optimal alignment.</li>
+                </ul>
+                <p>Click on the "Custom Parameters" button, enter your values.</p>
+            </div>
+
+            <div class="section">
+                <h2>Step 4: Submitting Your File</h2>
+                <p>Once your file is uploaded and parameters are set, click Submit to initiate the analysis.</p>
+            </div>
+
+            <div class="section">
+                <h2>Step 5: Viewing Results</h2>
+                <p>After processing, you will be redirected to the Results page, which includes:</p>
+                <ul>
+                    <li>A table displaying transition/transversion ratios for each sequence pair.</li>
+                    <li>A nucleotide matrix detailing individual nucleotide substitutions.</li>
+                    <li>Header and query indexing information.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Step 6: Exploring Individual Outputs</h2>
+                <p>For a detailed visualization of pairwise alignments, click on Individual Output:</p>
+                <ul>
+                    <li>Select the required query and subject sequences from the dropdown menu.</li>
+                    <li>View the color-coded alignment, highlighting:
+                        <ul>
+                            <li>Identical nucleotides</li>
+                            <li>Transitions (A ↔ G, C ↔ T)</li>
+                            <li>Transversions (Purine ↔ Pyrimidine changes)</li>
+                            <li>Gaps</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Step 7: Summary Dashboard </h2>
+                <p>This tab provides the overall substitution count as well as individual length of each pair for comparision.</p>
+                
+            </div>
+
+            <div class="section">
+                <h2>Step 8: Accessing Run Details & Downloads</h2>
+                <p>The Run Details section provides:</p>
+                <ul>
+                    <li>The alignment parameters used for analysis.</li>
+                    <li>The exact command executed for the alignment.</li>
+                    <li><strong>Downloadable links</strong> for:
+                        <ul>
+                            <li>Nucleotide matrix</li>
+                            <li>Transition/Transversion matrix</li>
+                            <li>Alignment files for all queries</li>
+                            <li>Summary Matrices</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </div>
+    
+{% endblock %}
+
+

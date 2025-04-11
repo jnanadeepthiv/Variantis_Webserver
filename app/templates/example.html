@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Variantis Example Results{% endblock %}
+
+{% block content %}
+    <style>
+        .example-container {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+            margin: 0;
+            padding: 0;
+        }
+        .example-container .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .example-container h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .example-container .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #708fe5;
+        }
+        .example-container h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+        .example-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 15px;
+        }
+        .example-container .highlight {
+            font-weight: 500;
+            color: #1d4ed8;
+        }
+        .example-container .note {
+            font-style: italic;
+            color: #6b7280;
+            margin-top: 10px;
+        }
+        .example-container img {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .example-container .button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            text-align: center;
+        }
+        .example-container .button:hover {
+            background: #1e40af;
+        }
+        .example-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .example-container ul li {
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .example-container .download-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #48569d;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .example-container .download-btn:hover {
+            background-color: #0fc0cd;
+        }
+
+
+    </style>
+    <div class="example-container">
+        <div class="container">
+            <h1>Example Results - Variantis</h1>
+
+            <div class="section">
+                <h2>Example sequences - Click below to download</h2>
+                <a href= "{{ url_for('static', filename='files/sample_2_mega.fasta') }}" download="sample_fasta_file.fasta" class="download-btn">
+                    Download FASTA File
+                </a>
+            </div>
+
+
+            <div class="section">
+                <h2>Transition and Transversion Ratio Table</h2>
+                <img src="{{ url_for('static', filename='images/TiTv_new.png') }}" alt="Transition and Transversion Table">
+                <p>The table above, displayed in the Results section, presents the transition/transversion (Ti/Tv) ratios for each sequence pair. For example, when Query 1 is compared with Query 2, the Ti/Tv ratio is 1.378.</p>
+            </div>
+
+            <div class="section">
+                <h2>Nucleotide Matrix</h2>
+                <img src="{{ url_for('static', filename='images/Nuclmat_new.png') }}" alt="Nucleotide Matrix">
+                <p>The Nucleotide Matrix provides detailed insights into individual nucleotide substitutions between compared sequences. In the above example of query 1 and query 2 :
+                <ul>
+                    <li>Nucleotide "A" was substituted with "C" six times.</li>
+                    <li> was substituted with "G" twenty four times.</li>
+                    <li>"A" was substituted with "T" twice.</li>
+                </ul>
+                <p>This matrix helps analyze mutation frequencies and different types of nucleotide changes.</p>
+            </div>
+
+            <div class="section">
+                <h2>Header and Query Indexing</h2>
+                <img src="{{ url_for('static', filename='images/newQuerID_new.png') }}" alt="Header and Query Indexing">
+                <p>At the bottom of the Results page, Variantis provides query indexing details, linking each query to the original FASTA header provided by the user.</p>
+                
+                <p class="note">Note: The order of queries in the results matches the order of sequences in the uploaded FASTA file.</p>
+            </div>
+
+            <div class="section">
+                <h2>Color-Coded Alignment Output</h2>
+                <img src="{{ url_for('static', filename='images/newColouralin_new.png') }}" alt="Color-Coded Alignment">
+                <p>The color-coded alignment visually represents the nucleotide differences between two sequences.</p>
+                <p>Key highlights:</p>
+                <ul>
+                    <li>Identical nucleotides</li>
+                    <li>Transitions (A ↔ G, C ↔ T)</li>
+                    <li>Transversions (Purine ↔ Pyrimidine changes)</li>
+                    <li>Gaps</li>
+                </ul>
+                <p>Below the alignment, a statistics table and a pie chart provide an in-depth breakdown of these categories.</p>
+            </div>
+
+            <div class="section">
+                <h2>Summary Dashbord</h2>
+                <img src="{{ url_for('static', filename='images/summary_dashboard_new.png') }}" alt="Color-Coded Alignment">
+                <img src="{{ url_for('static', filename='images/summary_alignment_new.png') }}" alt="Color-Coded Alignment">
+                <p>The summary dashbord gives overall summary of the sequences including : </p>
+                <ul>
+                    <li>Nucleotide substitutions along with their percentages</li>
+                    <li>Length of individual sequence pairs along with their length after alignment.</li>
+                </ul>
+                
+            </div>
+
+            <div class="section">
+                <h2>Run Details and Parameter Summary</h2>
+                <img src="{{ url_for('static', filename='images/newsubmisde.jpeg') }}" alt="Run Details">
+                <img src="{{ url_for('static', filename='images/newdownloadcmd.png') }}" alt="Run Details">
+                <p>The Run Details section provides:</p>
+                <ul>
+                    <li>The alignment program</span> used (e.g., EMBOSS Needle or EMBOSS Stretcher).</li>
+                    <li>The gap opening and extension penalties.</li>
+                    <li>The exact command executed for the alignment.</li>
+                </ul>
+                <p>Additionally, downloadable links are provided for:</p>
+                <ul>
+                    <li>Nucleotide Matrix</li>
+                    <li>Transition/Transversion Matrix</li>
+                    <li>Alignment Files for all queries</li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,95 @@
+
+  <style>
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 20px auto;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    h2 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+  </style>
+
+  <h1>Alignment Results</h1>
+
+
+  
+
+
+  <h2>Transition/Transversion Ratio Matrix</h2>
+  <table>
+      <thead>
+          <tr>
+              <th></th>
+              {% for col in trans_matrix.columns %}
+              <th>{{ col }}</th>
+              {% endfor %}
+          </tr>
+      </thead>
+      <tbody>
+          {% for row in trans_matrix.index %}
+          <tr>
+              <th>{{ row }}</th>
+              {% for col in trans_matrix.columns %}
+              <td>{{ trans_matrix.loc[row, col] }}</td>
+              {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+  <h2>Nucleotide Substitution Matrix</h2>
+  <table>
+    <thead>
+        <tr>
+            <th>Sequence Pair</th>
+            <th>A</th>
+            <th>T</th>
+            <th>G</th>
+            <th>C</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pair, matrix in nuc_matrix.items() %}
+        <tr>
+            <td>{{ pair }}</td>
+            <td>{{ matrix['A'] }}</td>
+            <td>{{ matrix['T'] }}</td>
+            <td>{{ matrix['G'] }}</td>
+            <td>{{ matrix['C'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>    
+</table>
+
+  <!-- Query-to-ID Mapping Section -->
+  <h2>Query-to-ID Mapping</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>Query</th>
+              <th>Description</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for line in query_header_map %}
+          {% set parts = line.split(': ') %}
+          <tr>
+              <td>{{ parts[0] }}</td>
+              <td>{{ parts[1] }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+

@@ -1,0 +1,58 @@
+<!-- templates/base.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Variantis{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+  
+  
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+
+  
+  <!-- Custom Styles Block -->
+  {% block styles %}{% endblock %}
+
+  <!-- Additional Head Elements -->
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <!-- Include CSRF token in base.html -->
+  <input type="hidden" id="csrf_token" name="csrf_token" value="{{ csrf_token() }}">
+  <div class="header">
+    <div class="left-section">
+      <img src="{{ url_for('static', filename='images/webserver_logo.png') }}">
+    </div>
+
+    <div class="nav_links">
+      <a href="#" data-url="{{ url_for('main.home') }}" class="spa-link"><i class="fas fa-file-alt"></i> Home</a>
+      <a href="#" data-url="{{ url_for('main.tutorial_section') }}" class="spa-link"><i class="fas fa-file-alt"></i> Tutorial</a>
+      <a href="#" data-url="{{ url_for('main.example_section') }}" class="spa-link"><i class="fas fa-file-alt"></i> Example</a>
+      <a href="#" data-url="{{ url_for('main.about_section') }}" class="spa-link"><i class="fas fa-file-alt"></i> About</a>
+      
+    </div>
+    <div class="right-section">
+      <a href="https://sites.google.com/view/sharmaglab/Home" target="_blank">
+        <img src="{{ url_for('static', filename='images/lab_logo.png') }}" alt="SharmaGomics Lab Logo">
+      </a>
+    </div>
+  </div>
+
+  <div class="content" id="main-content">
+    {% if initial_content %}
+        {{ initial_content | safe }}
+    {% else %}
+        {% block content %}{% endblock %}
+    {% endif %}
+  </div>
+
+  <div class="footer">
+    <p>Project at 
+    <a href="https://sites.google.com/view/sharmaglab/" target="_blank">SharmaG-omics</a> &copy; 2025
+    </p>
+  </div>
+
+  
+</body>
+</html>

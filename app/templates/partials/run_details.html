@@ -1,0 +1,204 @@
+
+
+<style>
+  /* Global Styles */
+  .run_details-container {
+      
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+  }
+  
+
+
+  /* Submission Details Section */
+  .run_details-container.submission-details, .tool-output {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .run_details-container h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+  }
+
+  .run_details-container .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .run_details-container .details-list li {
+      margin: 10px 0;
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 16px;
+  }
+
+  .run_details-container .details-list strong {
+      color: #2c3e50;
+      font-weight: bold;
+      margin-right: 10px;
+  }
+
+  .run_details-container .details-list span {
+      color: #555;
+  }
+
+  /* Alignment Command */
+  .run_details-container .alignment-command {
+      background: #eef5f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+  }
+
+  .run_details-container pre {
+      background: #2c3e50;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+  }
+
+  /* Tool Output Section */
+  .run_details-container .tool-output table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+  }
+
+  .run_details-container .tool-output th, .tool-output td {
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      font-size: 16px;
+      text-align: left;
+  }
+
+  .run_details-container .tool-output th {
+      background-color: #34495e;
+      color: white;
+  }
+
+  .run_details-container .tool-output a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+
+  .run_details-container .tool-output a:hover {
+      color: #2980b9;
+  }
+
+  /* Prevent Font Awesome from adding unwanted icons */
+  .run_details-container a i {
+        display: none !important;  /* Hides all icons inside <a> tags */
+    }
+
+  /* Ensure Font Awesome icons only appear for download links */
+  .run_details-container .tool-output a i.fa-download {
+          display: inline !important;
+          font-size: 18px;
+          margin-left: 5px;
+      }
+
+  /* Hide Font Awesome icons for all other elements */
+  .run_details-container i {
+          display: none !important;
+      }
+
+  /* Ensure download icon is applied only to download links */
+  .run_details-container .download-link i.fa-download {
+          display: inline !important;
+          font-size: 18px;
+          margin-left: 5px;
+      }
+</style>
+
+<!-- Submission Details Section -->
+<div class = "run_details-container">
+  <div class="submission-details">
+    <h1>Submission Details</h1>
+    <ul class="details-list">
+      <li><strong>PSA Program:</strong> <span>{{ alignment_params.psa_program }}</span></li>
+      <li><strong>Gap Open Penalty:</strong> <span>{{ alignment_params.gap_open }}</span></li>
+      <li><strong>Gap Extend Penalty:</strong> <span>{{ alignment_params.gap_extend }}</span></li>
+      <li><strong>Matrix:</strong> <span>{{ alignment_params.matrix }}</span></li>
+      <li><strong>Sequence Type:</strong> <span>{{ alignment_params.sequence_type }}</span></li>
+      <li><strong>Output Format:</strong> <span>{{ alignment_params.output_format }}</span></li>
+    </ul>
+  </div>
+
+  <!-- Alignment Command Section -->
+  <div class="alignment-command">
+    <h1>Alignment Command</h1>
+    <pre style="text-align: center;">
+      Alignment_result = psa.{{ alignment_params.psa_program }}(moltype='nucl', qid=qi_d, sid=si_d, qseq=qseq, sseq=sseq, matrix="EDNAFULL", gapopen={{ alignment_params.gap_open }}, gapextend={{ alignment_params.gap_extend }})
+    </pre>
+  </div>
+
+  <!-- Tool Output Section -->
+  <div class="tool-output">
+    <h1>Tool Output</h1>
+    <p>Download the following files:</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>File Type</th>
+          <th>Download Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nucleotide Matrix (Excel)</td>
+          <td>
+            <a href="{{ files.nucleotide_matrix }}" class="download-link">
+              Download <i class="fas fa-download"></i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Transition/Transversion Ratio Matrix (Excel)</td>
+          <td>
+            <a href="{{ files.transratio_matrix }}" class="download-link">
+              Download <i class="fas fa-download"></i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>User Alignment (FASTA)</td>
+          <td>
+            <a href="{{ files.user_alignment }}" class="download-link">
+              Download <i class="fas fa-download"></i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Summary Features (Excel)</td>
+          <td>
+            <a href="{{ files.summary_features }}" class="download-link">
+              Download <i class="fas fa-download"></i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Summary Alignment Length (Excel)</td>
+          <td>
+            <a href="{{ files.summary_alignment }}" class="download-link">
+              Download <i class="fas fa-download"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

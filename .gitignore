@@ -1,0 +1,34 @@
+# Ignore environment-specific files
+.env
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+venv/
+env/
+vaprd/
+
+# Ignore results and uploaded files
+results/
+uploads/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore local development files
+*.log
+.pytest_cache/
+*.swp
+.ipynb_checkpoints/

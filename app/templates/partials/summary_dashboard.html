@@ -99,7 +99,11 @@
                       <td class="count">{{ row['Gap_Count'] }}</td>
                       <td class="percentage">{{ row['Gap_Percentage']|round(2) }}%</td>
                       <td class="count">{{ row['Identical_Count'] }}</td>
-                      <td class="percentage">{{ row['Identical_Percentage']|round(2) }}%</td>
+                      <!-- Highlight Percentage if < 60% -->
+                      <td class="percentage" {% if row['Identical_Percentage'] < 60 %}style="background-color: #ffebee; color: red; font-weight: bold;"{% endif %}>
+                        {{ row['Identical_Percentage']|round(2) }}%
+                      </td>
+                      <!-- <td class="percentage">{{ row['Identical_Percentage']|round(2) }}%</td> -->
                   </tr>
                   {% endfor %}
               </tbody>

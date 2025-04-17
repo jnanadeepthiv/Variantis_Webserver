@@ -80,7 +80,7 @@ function updateQueryrequest(event) {
           </thead>
           <tbody>
             <tr>
-              <td style="border: 1px solid black; padding: 8px;">Identical</td>
+              <td style="border: 1px solid black; padding: 8px;">Identity</td>
               <td style="border: 1px solid black; padding: 8px;">${data.stats.identical}</td>
               <td style="border: 1px solid black; padding: 8px;">${data.stats.identical_percent.toFixed(2)}%</td>
             </tr>
@@ -95,7 +95,7 @@ function updateQueryrequest(event) {
               <td style="border: 1px solid black; padding: 8px;">${data.stats.transversions_percent.toFixed(2)}%</td>
             </tr>
             <tr>
-              <td style="border: 1px solid black; padding: 8px;">Gapes</td>
+              <td style="border: 1px solid black; padding: 8px;">Gaps</td>
               <td style="border: 1px solid black; padding: 8px;">${data.stats.gaps}</td>
               <td style="border: 1px solid black; padding: 8px;">${data.stats.gaps_percent.toFixed(2)}%</td>
             </tr>
@@ -117,7 +117,7 @@ function updateQueryrequest(event) {
         new Chart(ctx, {
           type: 'pie',
           data: {
-            labels: ['Identical', 'Transitions', 'Transversions', 'Gaps','Ambiguous (N)'],
+            labels: ['Identity', 'Transitions', 'Transversions', 'Gaps','Ambiguous (N)'],
             datasets: [{
               data: [
                 data.stats.identical_percent,

@@ -98,6 +98,7 @@
         </div>
         <br>
         
+        
 
         <!-- Button to Auto-Upload Sample File -->
         <button type="button" id="uploadSampleBtn" 
@@ -140,8 +141,12 @@
         <strong>Minimum Sequences:</strong> The file must contain at least two sequences.
       </li>
 
+      <li style="color: #d32f2f;">
+        <b style="color: inherit;">Since global alignment is performed, ensure that the sequences being compared share a significant level of similarity</b>. Although results will be generated for all sequence pairs, <br> those with less than <b style="color: inherit;">60%</b> identity will be specifically highlighted in the dashboard for further attention.
+      </li>
+      
       <li>
-        If EMBOSS Stretcher is selected, make sure the gap open and gap extend are above 1 and whole numbers <b>(NO FLOATS)</b>
+        If EMBOSS Stretcher is selected, make sure the gap open and gap extend are above 1 and whole numbers <b>(NO FLOATS).</b>
       </li>
       <li>
         <strong>File Size:</strong> The maximum file size is <b>10MB</b>. For larger files, please split them into smaller files before uploading.
@@ -152,19 +157,20 @@
           <li>
             <strong>Automatic Algorithm Selection:</strong> 
             <ul style="list-style-type: circle; padding-left: 20px; margin-top: 5px;">
-              <li>If <b>any sequence</b> exceeds <b>3,000 bases</b>, the system will automatically switch to the <b>Stretcher</b> algorithm for all sequence comparisons</li>
+              <li>If <b>any sequence</b> exceeds <b>3,000 bases</b>, the system will automatically switch to the <b>Stretcher</b> algorithm for all sequence comparisons.</li>
               <li>In this case, if your custom gap parameters are below 1:
                 <ul style="list-style-type: square; padding-left: 20px;">
                   <li>Gap Open will default to <b>16</b></li>
                   <li>Gap Extend will default to <b>4</b></li>
                 </ul>
               </li>
-              <li>This applies to <b>all sequences</b> in the file, regardless of their individual lengths</li>
+              <li>This applies to <b>all sequences</b> in the file, regardless of their individual lengths.</li>
             </ul>
           </li>
           <li>
             Files containing sequences longer than <b>10,000 bases</b> will be rejected.
           </li>
+      
           <br>
         </ul>
       </li>

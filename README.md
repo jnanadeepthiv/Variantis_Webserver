@@ -79,4 +79,8 @@ For questions, feedback, or support, please [click here](https://project.iith.ac
 
 ---
 
-**Variantis** – Simplifying Sequence Analysis, One Nucleotide at a Time.  
+**License** 
+
+This project is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.html).
+
+It includes the [PSA module](https://github.com/aziele/pairwise-sequence-alignment.git), which is also licensed under GPLv3.  

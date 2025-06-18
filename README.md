@@ -24,7 +24,7 @@ Whether you're a researcher, student, or bioinformatics enthusiast, Variantis si
 - Customizable parameters for advanced users.  
 
 ### **3. Flexible Input Options**  
-- Supports **FASTA format** files with extensions: `.fasta`, `.fas`, `.fa`, `.fna`, `.ffn`, `.faa`, `.mpfa`, `.frn`.  
+- Supports **FASTA format** files with extensions: `.fasta`, `.fas`, `.fa`, `.fna`, `.ffn`, `.frn`.  
 - Allows users to adjust **gap open** and **gap extend** parameters for alignment.  
 
 ### **4. Automatic Algorithm Selection**  

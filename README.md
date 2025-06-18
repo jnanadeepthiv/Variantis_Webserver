@@ -9,6 +9,8 @@ Variantis is a **user-friendly platform** designed for **calculating transition 
 
 Whether you're a researcher, student, or bioinformatics enthusiast, Variantis simplifies the process of analyzing sequence variations, making it accessible to users of all skill levels.  
 
+[Visit Variantis](https://project.iith.ac.in/sharmaglab/variantis/)
+
 ---
 
 ## **Key Features**  
@@ -75,12 +77,20 @@ Explore  Variantis today and unlock new insights into your DNA sequence data. Wh
 
 ## **Contact**  
 
-For questions, feedback, or support, please [click here](https://project.iith.ac.in/sharmaglab/variantis/about).
+For questions, feedback, or support, please [click here](https://project.iith.ac.in/sharmaglab/variantis/about). 
 
 ---
 
-**License** 
+## **License** 
+
 
 This project is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.html).
 
-It includes the [PSA module](https://github.com/aziele/pairwise-sequence-alignment.git), which is also licensed under GPLv3.  
+© 2025 SharmaG-omics. All rights reserved where applicable.
+
+This project includes the [PSA module](https://github.com/aziele/pairwise-sequence-alignment.git), which is also licensed under GPLv3.
+
+
+
+
+

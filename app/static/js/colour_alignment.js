@@ -1,3 +1,12 @@
+/*
+ * Copyright (C) 2025 SharmaG-omics
+ *
+ * This file is part of the Variantis platform.
+ * Distributed under the terms of the GNU General Public License v3 or later.
+ * See <https://www.gnu.org/licenses/> for details.
+ */
+
+
 document.addEventListener("DOMContentLoaded", function () {
   //DEBUG //console.log("colour_alignment.js loaded");
   attachEventListeners(); // Attach event listeners initially

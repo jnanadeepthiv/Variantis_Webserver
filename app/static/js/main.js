@@ -1,3 +1,13 @@
+/*
+ * Copyright (C) 2025 SharmaG-omics
+ *
+ * This file is part of the Variantis platform.
+ * Distributed under the terms of the GNU General Public License v3 or later.
+ * See <https://www.gnu.org/licenses/> for details.
+ */
+
+
+
 // This function shows the default popup with parameters
 function showDefaultPopup() {
     alert('Default alignment parameters:\nProgram: EMBOSS Needle\nMatrix: EDNAFULL\nGap Open: 10\nGap Extend: 0.5');

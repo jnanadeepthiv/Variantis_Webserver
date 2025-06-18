@@ -32,3 +32,5 @@ uploads/
 .pytest_cache/
 *.swp
 .ipynb_checkpoints/
+logs/
+

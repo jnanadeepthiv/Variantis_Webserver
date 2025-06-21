@@ -67,6 +67,10 @@ Whether you're a researcher, student, or bioinformatics enthusiast, Variantis si
 - **Efficient**: Automates complex calculations, saving time and effort.  
 - **Insightful**: Provides detailed outputs for comprehensive sequence analysis.  
 
+> **Disclaimer**:  
+> The FASTA file `sample_2_mega.fasta` in the `example_data` folder is not covered by the same GPL-3.0 license as the source code.  
+> This file is dedicated to the public domain under **CC0**.  
+
 ---
 
 ## **Get Started**  
@@ -89,8 +93,6 @@ This project is licensed under the [GNU General Public License v3.0 (GPLv3)](htt
 © 2025 SharmaG-omics. All rights reserved where applicable.
 
 This project includes the [PSA module](https://github.com/aziele/pairwise-sequence-alignment.git), which is also licensed under GPLv3.
-
-
 
 
 

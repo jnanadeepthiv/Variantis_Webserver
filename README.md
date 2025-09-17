@@ -18,8 +18,8 @@ Whether you're a researcher, student, or bioinformatics enthusiast, Variantis si
 ### **1. Transition and Transversion Analysis**  
 - Calculate **transition (Ti)** and **transversion (Tv)** ratios for DNA sequences.  
 - Generate a **nucleotide matrix** for comparative analysis.  
-- Colour coded  alignment for individual pairs.
-- Summary matrices of the all the sequences.
+- Colour-coded  alignment for individual pairs.
+- Summary matrices of all the sequences.
 
 ### **2. User-Friendly Interface**  
 - Intuitive design for easy navigation and file upload.  
@@ -81,7 +81,8 @@ Explore  Variantis today and unlock new insights into your DNA sequence data. Wh
 
 ## **Contact**  
 
-For questions, feedback, or support, please [click here](https://project.iith.ac.in/sharmaglab/variantis/about). 
+For questions, feedback, or support, please [click here](https://docs.google.com/forms/d/e/1FAIpQLSeOfKEpLSVtfTiFA8pmOtZzwRsQcPZT6YUUfuv8V4Fi_cwuBg/viewform?usp=header).
+
 
 ---
 
